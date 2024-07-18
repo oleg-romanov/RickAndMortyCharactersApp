@@ -20,6 +20,7 @@ struct CharacterRow: View {
                     .clipped()
             } placeholder: {
                 ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: Color.gray))
             }
             .frame(width: 84, height: 64)
             .clipShape(RoundedRectangle(cornerRadius: 10))
