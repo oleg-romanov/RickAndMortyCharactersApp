@@ -16,48 +16,46 @@ struct CharactersListView: View {
             ZStack {
                 Color("BackgroundColor").ignoresSafeArea(.all)
                 
-                VStack {
-                    Spacer()
-                    Text("Rick & Morty Characters")
-                        .font(.custom("IBMPlexSans-Bold", size: 24))
-                        .foregroundStyle(Color("MainTextColor"))
-                        .frame(maxHeight: 31)
-                        .padding(.bottom, 20)
-                        .padding(.top, 12)
-                    
-                    List {
-                        ForEach(viewModel.characters) { character in
-                            CharacterRow(character: character)
-                                .clipShape(RoundedRectangle(cornerRadius: 24))
-                                .listRowInsets(.init(top: 0, leading: 20, bottom: 4, trailing: 20))
-                                .listRowSeparator(.hidden)
-                                .background(Color.clear)
-                            
-                        }
-                        
-                        if viewModel.isMoreDataAvaliable {
-                            lastRowView
-                                .onAppear {
-                                    Task {
-                                        await viewModel.fetchMoreCharacters()
-                                    }
-                                }
-                                .listRowInsets(EdgeInsets())
-                        }
+                List {
+                    ForEach(viewModel.characters) { character in
+
+                        CharacterRow(character: character)
+                            .clipShape(RoundedRectangle(cornerRadius: 24))
+                            .listRowInsets(.init(top: 0, leading: 20, bottom: 4, trailing: 20))
+                            .listRowSeparator(.hidden)
+                            .background(
+                                NavigationLink("", destination: CharacterDetailView(viewModel: CharacterDetailViewModel(character)))
+                                    .opacity(0)
+                            )
                     }
-                    .background(Color.clear)
-                    .ignoresSafeArea()
-                    .scrollContentBackground(.hidden)
-                    .listStyle(.plain)
-                    .onAppear {
-                        Task {
-                            await viewModel.fetchCharacters()
-                        }
+                    
+                    if viewModel.isMoreDataAvaliable {
+                        lastRowView
+                            .onAppear {
+                                Task {
+                                    await viewModel.fetchMoreCharacters()
+                                }
+                            }
+                            .listRowInsets(EdgeInsets())
                     }
                 }
+                .background(Color.clear)
+                .scrollContentBackground(.hidden)
+                .listStyle(.plain)
+                .padding(.top)
+                .onAppear {
+                    Task {
+                        await viewModel.fetchCharacters()
+                    }
+                }
+                
             }
+            .navigationTitle("Rick & Morty Characters")
+            .navigationBarTitleDisplayMode(.inline)
             
         }
+        .tint(Color("MainTextColor"))
+        
     }
     
     private var lastRowView: some View {
