@@ -17,6 +17,7 @@ struct CharacterRow: View {
             AsyncImage(url: imageURL) { image in
                 image
                     .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .clipped()
             } placeholder: {
                 ProgressView()
