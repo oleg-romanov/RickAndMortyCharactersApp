@@ -46,7 +46,7 @@ struct CharacterRow: View {
                 .font(.custom("IBMPlexSans-SemiBold", size: 12))
                 .frame(maxHeight: 16)
                 
-                Text(character.gender)
+                Text(character.gender.rawValue)
                     .font(.custom("IBMPlexSans-Regular", size: 12))
                     .foregroundStyle(Color("MainTextColor"))
                     .frame(maxHeight: 16)
@@ -69,7 +69,7 @@ struct CharacterRow: View {
         status: CharacterStatus.getStatus(by: "Alive"),
         species: "Human",
         type: "",
-        gender: "Male",
+        gender: CharacterGender.getGender(by: "Male"),
         episodes: [
             "https://rickandmortyapi.com/api/episode/1",
             "https://rickandmortyapi.com/api/episode/2",

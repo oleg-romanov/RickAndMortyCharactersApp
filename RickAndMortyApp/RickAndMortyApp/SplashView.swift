@@ -1,5 +1,5 @@
 //
-//  SplashScreenView.swift
+//  SplashView.swift
 //  RickAndMortyApp
 //
 //  Created by Олег Романов on 18.07.2024.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SplashScreenView: View {
+struct SplashView: View {
     
     @State private var isActive = false
     @State private var size: CGFloat = 1.0
@@ -48,5 +48,5 @@ struct SplashScreenView: View {
 
 
 #Preview {
-    SplashScreenView()
+    SplashView()
 }

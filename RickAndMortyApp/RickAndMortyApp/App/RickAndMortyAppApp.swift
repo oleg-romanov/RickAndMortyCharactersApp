@@ -29,7 +29,7 @@ struct RickAndMortyAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashScreenView()
+            SplashView()
         }
     }
 }
