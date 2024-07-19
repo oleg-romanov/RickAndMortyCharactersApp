@@ -14,7 +14,7 @@ struct CharactersListView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color("BackgroundColor").ignoresSafeArea(.all)
+                Color(ColorConstant.backgroundColor).ignoresSafeArea(.all)
                 
                 VStack {
                     SearchBar(
@@ -61,7 +61,7 @@ struct CharactersListView: View {
                     .listStyle(.plain)
                     .padding(.top)
                     .font(.custom("IBMPlexSans-Regular", size: 14))
-                    .foregroundStyle(Color("MainTextColor"))
+                    .foregroundStyle(Color(ColorConstant.mainTextColor))
                     .onAppear {
                         Task {
                             await viewModel.fetchCharacters()
@@ -86,13 +86,13 @@ struct CharactersListView: View {
             .navigationTitle("Rick & Morty Characters")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .tint(Color("MainTextColor"))
+        .tint(Color(ColorConstant.mainTextColor))
         
     }
     
     private var lastRowView: some View {
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea(.all)
+            Color(ColorConstant.backgroundColor).ignoresSafeArea(.all)
             HStack(alignment: .center) {
                 Spacer()
                 ProgressView()

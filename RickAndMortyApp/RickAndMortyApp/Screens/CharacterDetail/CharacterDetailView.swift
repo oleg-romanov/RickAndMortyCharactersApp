@@ -14,7 +14,7 @@ struct CharacterDetailView: View {
     var body: some View {
         let character = viewModel.character
         ZStack {
-            Color("BackgroundColor").ignoresSafeArea(.all)
+            Color(ColorConstant.backgroundColor).ignoresSafeArea(.all)
             ScrollView {
                 Group {
                     VStack(spacing: 12) {
@@ -40,7 +40,7 @@ struct CharacterDetailView: View {
                             .font(.custom("IBMPlexSans-SemiBold", size: 16))
                             .frame(maxWidth: .infinity, maxHeight: 42)
                             .frame(minHeight: 42)
-                            .foregroundStyle(Color("MainTextColor"))
+                            .foregroundStyle(Color(ColorConstant.mainTextColor))
                             .background(status.getStatusColor())
                             .clipShape(RoundedRectangle(cornerRadius: 16))
                             .padding(.horizontal, 16)
@@ -76,7 +76,7 @@ struct CharacterDetailView: View {
                         .padding(.bottom, 16)
                     }
                     .clipShape(RoundedRectangle(cornerRadius: 24))
-                    .background(Color("SecondaryColor"))
+                    .background(Color(ColorConstant.secondaryColor))
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 24))
                 .padding(.horizontal, 20)
@@ -131,6 +131,6 @@ struct CharacterDescriptionText: View {
             Text(attributeValue).font(attributeValueFont)
             Spacer()
         }
-        .foregroundStyle(Color("MainTextColor"))
+        .foregroundStyle(Color(ColorConstant.mainTextColor))
     }
 }
