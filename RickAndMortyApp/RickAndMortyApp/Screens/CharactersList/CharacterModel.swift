@@ -17,16 +17,16 @@ struct Character: Identifiable {
     var status: CharacterStatus
     var species: String
     var type: String
-    var gender: String
+    var gender: CharacterGender
     var episodes: [String]
     var lastKnownLocation: Location
 }
 
 // MARK: - CharacterStatus
 
-enum CharacterStatus: String {
-    case alive = "Alive"
+enum CharacterStatus: String, CaseIterable {    
     case dead = "Dead"
+    case alive = "Alive"
     case unknown = "Unknown"
     
     static func getStatus(by status: String) -> CharacterStatus {
@@ -48,6 +48,26 @@ enum CharacterStatus: String {
                 return Color("RedStateColor")
             case .unknown:
                 return Color("UnknownStateColor")
+        }
+    }
+}
+
+enum CharacterGender: String, CaseIterable {
+    case female = "Female"
+    case male = "Male"
+    case genderless = "Genderless"
+    case unknown = "Unknown"
+    
+    static func getGender(by gender: String) -> CharacterGender {
+        switch gender {
+            case CharacterGender.female.rawValue:
+                return .female
+            case CharacterGender.male.rawValue:
+                return .male
+            case CharacterGender.genderless.rawValue:
+                return .genderless
+            default:
+                return .unknown
         }
     }
 }

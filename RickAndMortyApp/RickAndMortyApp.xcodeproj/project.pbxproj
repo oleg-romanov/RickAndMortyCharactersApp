@@ -32,6 +32,8 @@
 		EA103DB12C49B11900DD8DA3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA103DB02C49B11900DD8DA3 /* LaunchScreen.storyboard */; };
 		EA103DB42C4A6F4000DD8DA3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA103DB32C4A6F4000DD8DA3 /* View+Extensions.swift */; };
 		EA103DB72C4A70DD00DD8DA3 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA103DB62C4A70DC00DD8DA3 /* SearchBar.swift */; };
+		EAD8FCA32C4ABB4500D997A2 /* FilterButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8FCA22C4ABB4500D997A2 /* FilterButtonStyle.swift */; };
+		EAD8FCA52C4B056C00D997A2 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD8FCA42C4B056B00D997A2 /* FilterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		EA103DB02C49B11900DD8DA3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA103DB32C4A6F4000DD8DA3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		EA103DB62C4A70DC00DD8DA3 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		EAD8FCA22C4ABB4500D997A2 /* FilterButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButtonStyle.swift; sourceTree = "<group>"; };
+		EAD8FCA42C4B056B00D997A2 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 				EA103D9B2C47E4C200DD8DA3 /* CharactersListView.swift */,
 				EA103D9D2C47E4E400DD8DA3 /* CharacterViewModel.swift */,
 				EA103DA32C47E58A00DD8DA3 /* CharacterRow.swift */,
+				EAD8FCA42C4B056B00D997A2 /* FilterView.swift */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				EA103DB62C4A70DC00DD8DA3 /* SearchBar.swift */,
+				EAD8FCA22C4ABB4500D997A2 /* FilterButtonStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				EA103DA42C47E58A00DD8DA3 /* CharacterRow.swift in Sources */,
 				EA103DAB2C494FB300DD8DA3 /* CharacterDetailModel.swift in Sources */,
 				EA103DAF2C49A61D00DD8DA3 /* SplashView.swift in Sources */,
+				EAD8FCA32C4ABB4500D997A2 /* FilterButtonStyle.swift in Sources */,
 				EA103D772C47D3B200DD8DA3 /* ContentView.swift in Sources */,
 				EA103D9E2C47E4E400DD8DA3 /* CharacterViewModel.swift in Sources */,
 				EA103DA92C49302C00DD8DA3 /* CharacterDetailView.swift in Sources */,
@@ -287,6 +294,7 @@
 				EA103D862C47DA2B00DD8DA3 /* APIError.swift in Sources */,
 				EA103D752C47D3B200DD8DA3 /* RickAndMortyAppApp.swift in Sources */,
 				EA103D842C47DA1000DD8DA3 /* APIConstant.swift in Sources */,
+				EAD8FCA52C4B056C00D997A2 /* FilterView.swift in Sources */,
 				EA103DB72C4A70DD00DD8DA3 /* SearchBar.swift in Sources */,
 				EA103D882C47DA5600DD8DA3 /* Response.swift in Sources */,
 			);

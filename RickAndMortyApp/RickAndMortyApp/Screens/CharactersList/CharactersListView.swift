@@ -17,11 +17,24 @@ struct CharactersListView: View {
                 Color("BackgroundColor").ignoresSafeArea(.all)
                 
                 VStack {
-                    SearchBar(text: $viewModel.searchText)
-                        .padding(.top, 6)
-                        .padding(.horizontal, 20)
+                    SearchBar(
+                        text: $viewModel.searchText,
+                        isFilterTapped: $viewModel.isFilterTapped,
+                        resetAllTapped: $viewModel.resetAllTapped, 
+                        selectedStatus: $viewModel.selectedStatus,
+                        selectedGender: $viewModel.selectedGender,
+                        textEditingIsFinished: $viewModel.textEditingIsFinished
+                    )
+                    .onChange(of: viewModel.isFilterTapped) { _, newValue in
+                        if newValue {
+                            viewModel.showFilterSheet = true
+                            viewModel.isFilterTapped = false
+                        }
+                    }
+                    .padding(.top, 6)
+                    .padding(.horizontal, 20)
                     List {
-                        ForEach(viewModel.filteredCharacters) { character in
+                        ForEach(viewModel.characters) { character in
                             
                             CharacterRow(character: character)
                                 .clipShape(RoundedRectangle(cornerRadius: 24))
@@ -55,7 +68,20 @@ struct CharactersListView: View {
                         }
                     }
                 }
-                
+                .sheet(isPresented: $viewModel.showFilterSheet, onDismiss: {
+                    viewModel.isFilterTapped = false
+                }, content: {
+                    FilterView(
+                        selectedStatus: $viewModel.selectedStatus,
+                        selectedGender: $viewModel.selectedGender,
+                        isFilterApplied: $viewModel.isFilterApplied) {
+                            viewModel.applyFilters(status: viewModel.selectedStatus, gender: viewModel.selectedGender)
+                            viewModel.showFilterSheet = false
+                        } onClose: {
+                            viewModel.showFilterSheet = false
+                        }
+                        .presentationDetents([.height(312)])
+                })
             }
             .navigationTitle("Rick & Morty Characters")
             .navigationBarTitleDisplayMode(.inline)
