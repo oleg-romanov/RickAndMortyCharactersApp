@@ -54,7 +54,7 @@ struct CharacterDetailView: View {
                             )
                             CharacterDescriptionText(
                                 attribute: "Gender: ",
-                                attributeValue: character.gender,
+                                attributeValue: character.gender.rawValue,
                                 attributeFont: .custom("IBMPlexSans-SemiBold", size: 16),
                                 attributeValueFont: .custom("IBMPlexSans-Regular", size: 16)
                             )
@@ -102,7 +102,7 @@ struct CharacterDetailView: View {
             status: CharacterStatus.getStatus(by: "Alive"),
             species: "Human",
             type: "",
-            gender: "Male",
+            gender: CharacterGender.getGender(by: "Male"),
             episodes: [
                 "https://rickandmortyapi.com/api/episode/1",
                 "https://rickandmortyapi.com/api/episode/2",
