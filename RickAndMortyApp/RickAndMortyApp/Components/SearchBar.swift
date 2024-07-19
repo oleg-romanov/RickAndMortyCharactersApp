@@ -25,9 +25,9 @@ struct SearchBar: View {
                     Image("SearchIcon")
                     TextField("",
                               text: $text,
-                              prompt: Text("Search").font(.custom("IBMPlexSans-Regular", size: 14)).foregroundStyle(Color("MainTextColor"))
+                              prompt: Text("Search").font(.custom("IBMPlexSans-Regular", size: 14)).foregroundStyle(Color(ColorConstant.mainTextColor))
                     )
-                    .foregroundStyle(Color("MainTextColor"))
+                    .foregroundStyle(Color(ColorConstant.mainTextColor))
                     .onSubmit {
                         withAnimation {
                             showCancelButton = false
@@ -46,7 +46,7 @@ struct SearchBar: View {
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color("DarkGrayColor"), lineWidth: 2)
+                        .stroke(Color(ColorConstant.darkGrayColor), lineWidth: 2)
                 )
                 if showCancelButton {
                     Button("Cancel", action: {
@@ -73,18 +73,18 @@ struct SearchBar: View {
                             .frame(height: 24)
                             .padding(.horizontal, 16)
                             .font(.custom("IBMPlexSans-Regular", size: 8))
-                            .background(Color("MainTextColor"))
+                            .background(Color(ColorConstant.mainTextColor))
                             .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .foregroundStyle(Color("BackgroundColor"))
+                            .foregroundStyle(Color(ColorConstant.backgroundColor))
                     }
                     if !selectedGender.isEmpty {
                         Text(selectedGender)
                             .frame(height: 24)
                             .padding(.horizontal, 16)
                             .font(.custom("IBMPlexSans-Regular", size: 8))
-                            .background(Color("MainTextColor"))
+                            .background(Color(ColorConstant.mainTextColor))
                             .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .foregroundStyle(Color("BackgroundColor"))
+                            .foregroundStyle(Color(ColorConstant.backgroundColor))
                     }
                     Button {
                         selectedStatus = ""
@@ -97,9 +97,9 @@ struct SearchBar: View {
                     .frame(height: 24)
                     .padding(.horizontal, 16)
                     .font(.custom("IBMPlexSans-Regular", size: 8))
-                    .background(Color("ActiveStateColor"))
+                    .background(Color(ColorConstant.activeStateColor))
                     .clipShape(RoundedRectangle(cornerRadius: 16))
-                    .foregroundStyle(Color("MainTextColor"))
+                    .foregroundStyle(Color(ColorConstant.mainTextColor))
                 }
                 
             }

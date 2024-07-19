@@ -25,13 +25,13 @@ struct FilterButtonStyle: ViewModifier {
             .frame(height: height)
             .padding(.horizontal, 16)
             .font(.custom("IBMPlexSans-Regular", size: fontSize))
-            .foregroundStyle(isActive ? Color("BackgroundColor") : Color("MainTextColor"))
-            .background(isActive ? Color("MainTextColor") : Color.clear)
+            .foregroundStyle(isActive ? Color(ColorConstant.backgroundColor) : Color(ColorConstant.mainTextColor))
+            .background(isActive ? Color(ColorConstant.mainTextColor) : Color.clear)
             
             .clipShape(RoundedRectangle(cornerRadius: 24))
             .overlay(
                 RoundedRectangle(cornerRadius: 16)
-                    .stroke(isActive ? Color("MainTextColor") : Color("DarkGrayColor"), lineWidth: 2)
+                    .stroke(isActive ? Color(ColorConstant.mainTextColor) : Color(ColorConstant.darkGrayColor), lineWidth: 2)
                 
             )
         }
