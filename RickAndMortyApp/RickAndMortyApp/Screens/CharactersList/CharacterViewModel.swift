@@ -13,6 +13,14 @@ class CharacterViewModel: ObservableObject {
     // MARK: Instance Properties
     
     @Published var characters = [Character]()
+    @Published var searchText: String = ""
+    
+    var filteredCharacters: [Character] {
+        guard !searchText.isEmpty else { return characters }
+        return characters.filter { character in
+            character.name.lowercased().contains(searchText.lowercased())
+        }
+    }
     
     private let networkService: APIClient
     
